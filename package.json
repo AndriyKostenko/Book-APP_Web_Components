@@ -4,16 +4,10 @@
   "description": "web components app",
   "main": "index.js",
   "scripts": {
+    "start": "live-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AndriyKostenko/Advanced_JavaScript.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AndriyKostenko/Advanced_JavaScript/issues"
-  },
-  "homepage": "https://github.com/AndriyKostenko/Advanced_JavaScript#readme"
+  "license": "ISC"
+
 }
