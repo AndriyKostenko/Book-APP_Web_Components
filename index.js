@@ -2,6 +2,7 @@
 
 import { router } from './src/router.js';
 import { Header } from "./src/components/header/header.js";
+import { appState } from "./src/appState.js";
 
 
 // Initial load

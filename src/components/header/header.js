@@ -1,24 +1,65 @@
+import { appState } from "../../appState.js";
+
 export class Header extends HTMLElement {
 	css = `
 		header {
-			background-color: #f0f0f0;
-			padding: 1rem;
-			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 30px;
+			margin-top: 20px;
 		}
-		h1 {
-			color: #333;
+		
+		.menu {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+		}
+
+		.menu__item {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 14px;
+			line-height: 20px;
+			color: var(--black);
+			text-decoration: none;
+		}
+
+		.menu__item::visited {
+			color: var(--black)
+		}
+
+		.menu__counter {
+			font-size: 12px;
+			line-height: 28px;
+			border: 1px solid var(--black);
+			border-radius: 50%;
+			padding: 0 10px;
 		}
   `;
 
-	constructor(appState) {
+	constructor() {
         super();
 
-		this.appState = appState
         this.attachShadow({ mode: 'open' }); // Attach shadow DOM
+		
+		// Each component that needs to react to changes in the state (like the Header component) registers itself as an observer
+		appState.addObserver(this);
 		
 	}
 
+	//initial render
 	connectedCallback() {
+		this.render(); 
+	}
+
+	// this method is called when state changes
+	update() {
+		this.render();
+	}
+
+	render() {
 		// This is where we render the component
 		this.shadowRoot.innerHTML = `
 			<style>${this.css}</style>
@@ -29,24 +70,21 @@ export class Header extends HTMLElement {
 				</div>
 
 				<div class="menu">
-					<a class="menu_item" href="#">
+					<a class="menu__item" href="#">
 						<img src="./static/search.svg" alt="searcr_icon"></img>
 						Book Search
 					</a>
 
-					<a class="menu_item" href="#">
+					<a class="menu__item" href="#favorites">
 						<img src="./static/favorites.svg" alt="favourites_icon"></img>
 						Favourites books
 
 						<div class="menu__counter">
-							${this.appState.favorites.length}
+							${appState.favorites.length}
 						</div>
 					</a>
 				</div>
-
-
 			</header>
-		
 
 			<slot name="header"></slot>	`;
 	}
