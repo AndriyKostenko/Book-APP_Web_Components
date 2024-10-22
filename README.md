@@ -12,7 +12,7 @@ This is a my web application for searching books and managing favorite book list
 
 # Step-by-Step Guide
 
-1. Clone the repository: `git clone https://github.com/your-username/book-search-app.git`
+1. Clone the repository: `git clone https://github.com/AndriyKostenko/Book-APP_Web_Components.git`
 
 2. You can serve the project using any static HTTP server. If you have Node.js installed, you can use live-server or the built-in http-server:
 
