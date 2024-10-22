@@ -25,3 +25,7 @@ This is a my web application for searching books and managing favorite book list
    `npx http-server`
 
 After running the server, visit http://127.0.0.1:8080 in your browser (port may vary based on your setup).
+
+![Screenshot from 2024-10-22 11-54-08](https://github.com/user-attachments/assets/7ee137fe-0121-4a29-b0b3-f671c93c29b1)
+
+![Screenshot from 2024-10-22 12-04-10](https://github.com/user-attachments/assets/86e510eb-2c5c-4ca9-9a70-fc7875e874b3)
