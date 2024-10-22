@@ -42,16 +42,21 @@ export class Header extends HTMLElement {
 	constructor() {
         super();
 
-        this.attachShadow({ mode: 'open' }); // Attach shadow DOM
+        this.attachShadow({ mode: 'open' }); // Attaching shadow DOM
+		this.appState = appState;
 		
 		// Each component that needs to react to changes in the state (like the Header component) registers itself as an observer
-		appState.addObserver(this);
+		this.appState.addObserver(this);
 		
 	}
 
 	//initial render
 	connectedCallback() {
 		this.render(); 
+	}
+
+	disconnectedCallback() {
+		this.appState.removeObserver(this); // clean up
 	}
 
 	// this method is called when state changes
@@ -80,7 +85,7 @@ export class Header extends HTMLElement {
 						Favourites books
 
 						<div class="menu__counter">
-							${appState.favorites.length}
+							${this.appState.favorites.length}
 						</div>
 					</a>
 				</div>
