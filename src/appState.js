@@ -47,7 +47,7 @@ class AppState {
 		this.error = null;
 
 		try {
-			const response = await fetch(`https://api.bigbookapi.com/search-books?api-key="..."&query=${query}.`);
+			const response = await fetch(`https://api.bigbookapi.com/search-books?api-key=6e06e601c9684128a414ea8e0bdb988d&query=${query}.`);
 			const data = await response.json()
 			
 			this.books = [...data.books]
@@ -55,6 +55,7 @@ class AppState {
 			
 		} catch (error) {
 			this.error = 'Failed to fetch data'
+			this.books = []
 			console.error(error)
 		} finally {
 			this.loading = false;
